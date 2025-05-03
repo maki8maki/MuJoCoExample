@@ -1,0 +1,21 @@
+<mujoco model="Hoper">
+    <include file="./shared.xml"></include>
+
+    <worldbody>
+        <body name="lower_leg" pos="0 0 0.5" childclass="body">
+            <freejoint name="root"/>
+            <geom name="lower_leg" type="cylinder" fromto="0 0 0 0 0 0.75" size="0.03" rgba="0.0 0.0 1.0 1.0"/>
+            <body name="upper_leg" pos="0 0 0.375">
+                <geom name="upper_leg" type="cylinder" fromto="0 0 0 0 0 0.75" size="0.05" rgba="0.0 1.0 0.0 1.0"/>
+                <joint name="slider" type="slide" range="-0.25 0.25"/>
+                <body name="torso" pos="0 0 0.75">
+                    <geom name="torso" type="sphere" size="0.25" rgba="1.0 0.0 0.0 1.0"/>
+                </body>
+            </body>
+        </body>
+    </worldbody>
+
+    <actuator>
+        <motor name="slider" joint="slider" gear="1000"/>
+    </actuator>
+</mujoco>
