@@ -17,7 +17,7 @@ class HopperViewer(Viewer):
         super().__init__(mjcf_path=MJCF_PATH, camera_config=CAMERA_CONFIG, title="Hopper", *args, **kwargs)
 
     def _key_callback(self, window, key, scancode, action, mods):
-        FORCE = 100
+        FORCE = 1.0
         if key == glfw.KEY_UP:
             self.data.ctrl[0] = FORCE
         elif key == glfw.KEY_DOWN:
@@ -28,7 +28,7 @@ class HopperViewer(Viewer):
     def _create_overlay(self):
         super()._create_overlay()
 
-        self.add_overlay(self.TOPLEFT, "[Up] / [Down] arrow", "")
+        self.add_overlay(self.TOPLEFT, "[Up] / [Down]", "")
 
 
 viewer = HopperViewer()
