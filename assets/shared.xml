@@ -15,12 +15,6 @@
         <default class="body">
             <geom condim="1" friction=".7" solimp=".9 .99 .003" solref=".015 1" material="body"/>
             <joint damping=".02" stiffness=".1" armature=".01" limited="true" solimplimit="0 .99 .01"/>
-            <default class="big_joint">
-                <joint damping="5" stiffness="10"/>
-                <default class="big_stiff_joint">
-                    <joint stiffness="20"/>
-                </default>
-            </default>
         </default>
     </default>
 
