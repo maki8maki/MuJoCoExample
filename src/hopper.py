@@ -5,7 +5,7 @@ from viewer import Viewer
 MJCF_PATH = "assets/hopper.xml"
 
 CAMERA_CONFIG = {
-    "distance": 2.5,
+    "distance": 5.0,
     "azimuth": 180.0,
     "elevation": -30.0,
     "lookat": [0, 0.0, 0.75],
