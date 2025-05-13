@@ -31,6 +31,6 @@ class HopperViewer(Viewer):
         self.add_overlay(self.TOPLEFT, "[Up] / [Down]", "")
 
 
-viewer = HopperViewer()
-
-viewer()
+if __name__ == "__main__":
+    viewer = HopperViewer()
+    viewer()
