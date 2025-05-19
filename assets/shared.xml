@@ -14,7 +14,7 @@
         <motor ctrlrange="-1 1" ctrllimited="true"/>
         <default class="body">
             <geom condim="1" friction=".7" solimp=".9 .99 .003" solref=".015 1" material="body"/>
-            <joint damping=".02" stiffness=".1" armature=".01" limited="true" solimplimit="0 .99 .01"/>
+            <joint damping=".02" stiffness=".1" armature=".01" solimplimit="0 .99 .01"/>
         </default>
     </default>
 
