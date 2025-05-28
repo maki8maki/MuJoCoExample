@@ -5,6 +5,7 @@
         <body name="wheel" pos="0 0 0.11" childclass="body">
             <freejoint name="root"/>
             <geom name="body" type="box" fromto="0 0 0 0 0 0.1" size="0.2" rgba="0.0 0.0 1.0 1.0"/>
+            <camera name="body" pos="-1 0 0.5" xyaxes="0 -1 0 1 0 2" mode="trackcom"/>
             <body name="caster" pos="0.15 0 -0.06">
                 <geom name="caster" type="sphere" size="0.05" rgba="1.0 0.0 0.0 1.0"/>
                 <joint name="caster" type="ball"/>
@@ -21,7 +22,7 @@
     </worldbody>
 
     <actuator>
-        <motor name="left_wheel" joint="left_wheel" gear="1"/>
-        <motor name="right_wheel" joint="right_wheel" gear="1"/>
+        <motor name="left_wheel" joint="left_wheel" gear="5"/>
+        <motor name="right_wheel" joint="right_wheel" gear="5"/>
     </actuator>
 </mujoco>
