@@ -12,12 +12,12 @@
             </body>
             <body name="left_wheel" pos="-0.1 0.21 -0.01">
                 <geom name="left_wheel" type="cylinder" fromto="0 0 0 0 0.02 0" size="0.1"
-                    friction="3.0 0.01 0.01" rgba="0.0 1.0 0.0 1.0" />
+                    friction="3.0" rgba="0.0 1.0 0.0 1.0" />
                 <joint name="left_wheel" type="hinge" axis="0 1 0" />
             </body>
             <body name="right_wheel" pos="-0.1 -0.21 -0.01">
                 <geom name="right_wheel" type="cylinder" fromto="0 0 0 0 -0.02 0" size="0.1"
-                    friction="3.0 0.01 0.01" rgba="0.0 1.0 0.0 1.0" />
+                    friction="3.0" rgba="0.0 1.0 0.0 1.0" />
                 <joint name="right_wheel" type="hinge" axis="0 1 0" />
             </body>
         </body>
