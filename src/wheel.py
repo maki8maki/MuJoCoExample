@@ -22,15 +22,19 @@ class WheelViewer(Viewer):
         else:
             FORCE = 0.0
         if key == glfw.KEY_UP:
+            # 前進
             self.data.ctrl[0] = FORCE
             self.data.ctrl[1] = FORCE
         elif key == glfw.KEY_DOWN:
+            # 後退
             self.data.ctrl[0] = -FORCE
             self.data.ctrl[1] = -FORCE
         elif key == glfw.KEY_LEFT:
+            # 左回転
             self.data.ctrl[0] = -FORCE
             self.data.ctrl[1] = FORCE
         elif key == glfw.KEY_RIGHT:
+            # 右回転
             self.data.ctrl[0] = FORCE
             self.data.ctrl[1] = -FORCE
         else:
