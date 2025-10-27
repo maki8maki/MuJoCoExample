@@ -31,8 +31,12 @@ class Viewer(mujoco_viewer.MujocoViewer):
         self._overlay[gridpos][0] += text1 + "\n"
         self._overlay[gridpos][1] += text2 + "\n"
 
+    def _callback(self):
+        pass
+
     def __call__(self):
         for _ in range(100000):
+            self._callback()
             mujoco.mj_step(self.model, self.data)
             self.render()
             if not self.is_alive:
