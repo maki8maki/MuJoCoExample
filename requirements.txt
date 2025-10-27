@@ -1,3 +1,4 @@
 mujoco==3.2.7
 mujoco-python-viewer
 numpy
+simple-pid

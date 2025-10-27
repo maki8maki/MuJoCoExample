@@ -1,0 +1,41 @@
+<mujoco model="Drone">
+    <include file="./shared.xml"></include>
+
+    <default>
+        <default class="drone">
+            <motor ctrlrange="0 5" gear="0 0 1 0 0 0" />
+        </default>
+    </default>
+
+    <worldbody>
+        <body name="drone" pos="0 0 0.05" childclass="body">
+            <freejoint name="root" />
+            <geom name="body" type="box" mass="1" pos="0 0 0" size="0.2 0.2 0.05"
+                rgba="0.0 0.0 1.0 1.0" />
+            <site name="sensor" />
+            <camera name="body" pos="-2 0 1" xyaxes="0 -1 0 1 0 2" mode="trackcom" />
+            <replicate count="4" sep="" euler="0 0 -90">
+                <body name="shaft" pos="0.2 -0.2 0.0">
+                    <geom name="shaft" type="capsule" mass="0" fromto="-0.05 0.05 0 0.2 -0.2 0"
+                        size="0.02" rgba="0.0 0.0 1.0 1.0" />
+                    <site name="thrust" pos="0.2 -0.2 0" />
+                    <body name="rotor" pos="0.2 -0.2 0.02">
+                        <geom name="rotor" type="cylinder" mass="0" fromto="0 0 0 0 0 0.02"
+                            size="0.2" rgba="1.0 0.0 0.0 1.0" />
+                    </body>
+                </body>
+            </replicate>
+        </body>
+    </worldbody>
+
+    <actuator>
+        <motor class="drone" name="thrust0" site="thrust0" />
+        <motor class="drone" name="thrust1" site="thrust1" />
+        <motor class="drone" name="thrust2" site="thrust2" />
+        <motor class="drone" name="thrust3" site="thrust3" />
+    </actuator>
+
+    <sensor>
+        <velocimeter name="body_vel" site="sensor" />
+    </sensor>
+</mujoco>
