@@ -27,9 +27,7 @@ class DroneViewer(Viewer):
     def __init__(self, *args, **kwargs):
         super().__init__(mjcf_path=MJCF_PATH, camera_config=CAMERA_CONFIG, title="Drone", *args, **kwargs)
         self.force = np.full(self.NUM_THRUST, self.STABLE_FORCE)
-        self.target_pos = np.array([0.0, 0.0, 0.0])
-        dt = 0.005
-        self.controller = PID(10, 0.1, 0.05, setpoint=0, sample_time=dt)
+        self.controller = PID(10, 0.1, 0.05, setpoint=0, sample_time=0.005)
 
     def set_force(self, force):
         for i in range(4):
