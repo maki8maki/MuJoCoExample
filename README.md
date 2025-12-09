@@ -4,13 +4,13 @@
 
 * インストール
 
-```
+```bash
 pip install -r requirements.txt
 ```
 
 * 実行
 
-```
+```bash
 python src/hopper.py
 ```
 
