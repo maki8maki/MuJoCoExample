@@ -1,0 +1,44 @@
+<mujoco model="InvertedPendulum">
+    <include file="./shared.xml"></include>
+
+    <worldbody>
+        <body name="pendulum" pos="0 0 0.022" childclass="body">
+            <freejoint name="root" />
+            <geom name="body" type="box" pos="0 0 0.04" size="0.002 0.02 0.04"
+                rgba="0.0 0.0 1.0 1.0" />
+            <camera name="body" pos="0 -0.3 0.04" xyaxes="1 0 0 0 0 1" mode="trackcom" />
+            <body name="wheels" pos="0 0 -0.002">
+                <geom name="shaft" type="cylinder" fromto="0 -0.025 0 0 0.025 0" size="0.001"
+                    rgba="1.0 0.0 0.0 1.0" />
+                <joint name="shaft" type="hinge" axis="0 -1 0" />
+                <body name="left_wheel" pos="0 0.025 0">
+                    <geom name="left_wheel" type="cylinder" fromto="0 0 0 0 0.002 0" size="0.02"
+                        friction="0.1" rgba="0.0 1.0 0.0 1.0" />
+                </body>
+                <body name="right_wheel" pos="0 -0.025 0">
+                    <geom name="right_wheel" type="cylinder" fromto="0 0 0 0 -0.002 0" size="0.02"
+                        friction="0.1" rgba="0.0 1.0 0.0 1.0" />
+                </body>
+            </body>
+            <body name="mount" pos="0 0 0.001">
+                <geom name="mount" type="box" size="0.006 0.002 0.001" rgba="0.0 0.0 1.0 1.0" />
+                <site name="rangefinder_f" pos="0.005 0 -0.001" euler="180 0 0"
+                    rgba="0.0 1.0 0.0 0.0" />
+                <site name="rangefinder_b" pos="-0.005 0 -0.001" euler="180 0 0"
+                    rgba="0.0 0.0 0.0 0.0" />
+            </body>
+            <site name="pushed" pos="0 0 0.06" rgba="0.0 0.0 0.0 0.0" />
+        </body>
+    </worldbody>
+
+    <actuator>
+        <motor name="shaft" joint="shaft" gear="10" />
+        <motor name="push" site="pushed" gear="0.1 0 0 0 0 0" />
+    </actuator>
+
+    <sensor>
+        <jointpos name="encoder" joint="shaft" />
+        <rangefinder name="front" site="rangefinder_f" />
+        <rangefinder name="back" site="rangefinder_b" />
+    </sensor>
+</mujoco>
