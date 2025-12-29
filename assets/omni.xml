@@ -1,0 +1,43 @@
+<mujoco model="Omni">
+    <include file="./shared.xml"></include>
+
+    <worldbody>
+        <body name="omni" pos="0 0 0.1" childclass="body">
+            <freejoint name="root" />
+            <geom name="body" type="box" fromto="0 0 0 0 0 0.1" size="0.2" rgba="0.0 0.0 1.0 1.0" />
+            <camera name="body" pos="-1 0 0.5" xyaxes="0 -1 0 1 0 2" mode="trackcom" />
+            <site name="mark" type="cylinder" pos="0.15 0 0.1" rgba="1.0 0.0 0.0 1.0" />
+            <site name="sensor" rgba="0 0 0 0" />
+            <replicate count="4" sep="_" euler="0 0 90">
+                <body name="wheel" pos="0 -0.21 0.02">
+                    <geom name="wheel" type="cylinder" fromto="0 0 0 0 -0.02 0" size="0.1"
+                        friction="0.1" rgba="0.0 1.0 0.0 1.0" />
+                    <joint name="wheel" type="hinge" axis="0 1 0" />
+                    <replicate count="30" sep="_" euler="0 12 0">
+                        <body name="barrel" pos="0 -0.01 0.11">
+                            <geom name="barrel" type="sphere" size="0.01" friction="3"
+                                rgba="0.0 1.0 0.0 1.0" />
+                            <joint name="barrel" type="hinge" axis="1 0 0" damping="0" stiffness="0"
+                                armature="0" />
+                        </body>
+                    </replicate>
+                </body>
+            </replicate>
+        </body>
+    </worldbody>
+
+    <actuator>
+        <motor name="wheel_0" joint="wheel_0" gear="5" />
+        <motor name="wheel_1" joint="wheel_1" gear="5" />
+        <motor name="wheel_2" joint="wheel_2" gear="5" />
+        <motor name="wheel_3" joint="wheel_3" gear="5" />
+    </actuator>
+
+    <sensor>
+        <jointvel name="wheel_0" joint="wheel_0" />
+        <jointvel name="wheel_1" joint="wheel_1" />
+        <jointvel name="wheel_2" joint="wheel_2" />
+        <jointvel name="wheel_3" joint="wheel_3" />
+        <gyro name="gyro" site="sensor" />
+    </sensor>
+</mujoco>
