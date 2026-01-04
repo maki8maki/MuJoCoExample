@@ -14,19 +14,6 @@ CAMERA_CONFIG = {
 }
 
 
-def calcurate_route(waypoints: list[list]) -> list:
-    n = 10
-    size = len(waypoints)
-    route = []
-    for i in range(size - 1):
-        start = waypoints[i]
-        end = waypoints[i + 1]
-        r = np.array([np.linspace(start[j], end[j], n, endpoint=False) for j in range(3)]).transpose()
-        route += r.tolist()
-    route += [waypoints[-1]]
-    return route
-
-
 class OmniViewer(Viewer):
     DT = 0.005
 
