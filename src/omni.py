@@ -41,7 +41,7 @@ class OmniViewer(Viewer):
 
     def _key_callback(self, window, key, scancode, action, mods):
         if action in [glfw.PRESS, glfw.REPEAT]:
-            FORCE = 2.0
+            FORCE = 1.0
         else:
             FORCE = 0.0
         if key == glfw.KEY_UP:
