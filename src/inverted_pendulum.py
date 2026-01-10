@@ -36,8 +36,7 @@ class InvertedPendulumViewer(Viewer):
         elif b == -1:
             th = 0.5 * math.pi
         else:
-            sin = max(min((b - f) / self.RF_DISTANCE, 1.0), -1.0)
-            th = math.asin(sin)
+            th = math.atan2(b - f, self.RF_DISTANCE)
         return th
 
     def get_position(self):
