@@ -67,7 +67,7 @@ class InvertedPendulumViewer(Viewer):
     def _create_overlay(self):
         super()._create_overlay()
 
-        self.add_overlay(self.TOPLEFT, "Move Inverted Pendulum", "[Right] / [Left] Arrow")
+        self.add_overlay(self.TOPLEFT, "Move Inverted Pendulum", "[Left] / [Right] Arrow")
 
 
 if __name__ == "__main__":
